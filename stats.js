@@ -43,9 +43,17 @@ const getAverage = (series1, boolean) => {
 		let saturday = 0;
 		let sunday = 0;
 
-		const averageVisits = (day) => {
-			day = day / series1.length + 1;
-			return day;
+		let mondays = 0;
+		let tuesdays = 0;
+		let wednesdays = 0;
+		let thursdays = 0;
+		let fridays = 0;
+		let saturdays = 0;
+		let sundays = 0;
+
+		const averageVisits = (day, howmany) => {
+			day = day / howmany;
+			return Math.round(day);
 		}
 		
 		if(boolean === "" || boolean != true) {	
@@ -53,37 +61,42 @@ const getAverage = (series1, boolean) => {
 				visits += series1[i].visits;
 			}
 			visits = visits / series1.length + 1;
-			return("Average visits: "+ visits);
+			return("Average visits: "+ Math.round(visits));
 		} else {
 			for(i = 0; i < series1.length; i++){
-				switch (series1[i].date.getDate()) {
+				switch (series1[i].date.getDay()) {
 					case 0:
 						sunday += series1[i].visits;
+						sundays++;
 						break;
 					case 1:
 						monday += series1[i].visits;
+						mondays++;
 						break;
 					case 2:
 						tuesday += series1[i].visits;
+						tuesdays++;
 						break;
 					case 3:
 						wednesday += series1[i].visits;
+						wednesdays++;
 						break;
 					case 4:
 						thursday += series1[i].visits;
+						thursdays++;
 						break;
 					case 5:
 						friday += series1[i].visits;
+						fridays++;
 						break;
 					case 6:
 						saturday += series1[i].visits;
+						saturdays++;
 						break;
 					default:
 					break;
 				}
-				return("Monday avarage visits:" + averageVisits(monday) );
-
-			}
+			}	return(monday + " " + mondays + " Monday avarage visits:" + averageVisits(monday, mondays) );
 		}
 
 };
