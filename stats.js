@@ -68,6 +68,11 @@
 
 		let totalSeries = series1.concat(series2);
 
+			const averageVisits = (day, howmany) => {
+				day = day / howmany;
+				return Math.round(day);
+		}
+
 const getAverage = (series1, boolean) => {
 		let visits = 0;
 
@@ -86,22 +91,15 @@ const getAverage = (series1, boolean) => {
 		let fridays = 0;
 		let saturdays = 0;
 		let sundays = 0;
-
-		
-
-		const averageVisits = (day, howmany) => {
-			day = day / howmany;
-			return Math.round(day);
-		}
 		
 		if(boolean === "" || boolean != true) {	
-		for(i = 0; i < series1.length; i++){
+			for(let i = 0; i < series1.length; i++){
 				visits += series1[i].visits;
 			}
 			visits = visits / series1.length + 1;
 			return("Average visits: "+ Math.round(visits));
 		} else {
-			for(i = 0; i < series1.length; i++){
+			for(let i = 0; i < series1.length; i++){
 				switch (series1[i].date.getDay()) {
 					case 0:
 						sunday += series1[i].visits;
@@ -134,13 +132,14 @@ const getAverage = (series1, boolean) => {
 					default:
 					break;
 				}
-			}	return("Monday avarage visits:" + averageVisits(monday, mondays) + " \n" +
-								 "Tuesday avarage visits:" + averageVisits(tuesday, tuesdays) + " \n" +
-								 "Wednesday avarage visits:" + averageVisits(wednesday, wednesdays) + " \n" +
-								 "Thursday avarage visits:" + averageVisits(thursday, thursdays) + " \n" +
-								 "Friday avarage visits:" + averageVisits(friday, fridays) + " \n" +
-								 "Saturday avarage visits:" + averageVisits(saturday, saturdays) + " \n" +
-								 "Sunday avarage visits:" + averageVisits(sunday, sundays));
+			}	
+			return("Monday avarage visits:" + averageVisits(monday, mondays) + " \n" +
+							"Tuesday avarage visits:" + averageVisits(tuesday, tuesdays) + " \n" +
+							"Wednesday avarage visits:" + averageVisits(wednesday, wednesdays) + " \n" +
+							"Thursday avarage visits:" + averageVisits(thursday, thursdays) + " \n" +
+							"Friday avarage visits:" + averageVisits(friday, fridays) + " \n" +
+							"Saturday avarage visits:" + averageVisits(saturday, saturdays) + " \n" +
+							"Sunday avarage visits:" + averageVisits(sunday, sundays));
 		}
 	};
 
