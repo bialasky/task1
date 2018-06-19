@@ -135,12 +135,16 @@ const getAverage = (series1, boolean) => {
 					break;
 				}
 			}	return("Monday avarage visits:" + averageVisits(monday, mondays) + " \n" +
-								 "Tuesday avarage visits:" + averageVisits(tuesday tuesdays) + " \n" +
+								 "Tuesday avarage visits:" + averageVisits(tuesday, tuesdays) + " \n" +
 								 "Wednesday avarage visits:" + averageVisits(wednesday, wednesdays) + " \n" +
 								 "Thursday avarage visits:" + averageVisits(thursday, thursdays) + " \n" +
 								 "Friday avarage visits:" + averageVisits(friday, fridays) + " \n" +
 								 "Saturday avarage visits:" + averageVisits(saturday, saturdays) + " \n" +
-								 "Sunday avarage visits:" + averageVisits(sunday, sundays + " \n" +);
+								 "Sunday avarage visits:" + averageVisits(sunday, sundays));
 		}
+	};
 
-};
+	// getAverage(series1);
+	// getAverage(series1,true);
+	// getAverage(totalSeries);
+	// getAverage(totalSeries,true);	
